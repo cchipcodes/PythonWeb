@@ -1,4 +1,4 @@
-#This is version 0.2.2 of the Snakebite project. It has not yet been released as an application.
+#This is version 0.2.2 of the Snakebite project file. It has not yet been compiled as an application for public usage.
 
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
