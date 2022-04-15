@@ -1,3 +1,5 @@
+#This is version 0.2.2 of the Snakebite project. It has not yet been released as an application.
+
 from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 from PyQt6.QtGui import *
@@ -26,7 +28,7 @@ class AboutDialog(QDialog):
 
         layout.addWidget(title)
 
-        layout.addWidget(QLabel("Version 0.2.1 Snakebite"))
+        layout.addWidget(QLabel("Version 0.2.2 Snakebite"))
         layout.addWidget(QLabel("Snakebite is a project in progress, with many features to modern browser features being developed."))
         layout.addWidget(QLabel("Copyright 2022 nathandev"))
 
