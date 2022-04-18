@@ -6,7 +6,7 @@ There is currently only 1 version of the browser; PyQt6-0.2.x
 
 | Version | Supported          |
 | ------- | ------------------ |
-| PyQt6-0.2.x   | :white_check_mark: |
+| 0.2.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
