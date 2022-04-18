@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-There is currently only 1 version of the browser; PyQt6-0.2.x
+There is currently only 1 version of the browser; 0.2.x
 
 | Version | Supported          |
 | ------- | ------------------ |
