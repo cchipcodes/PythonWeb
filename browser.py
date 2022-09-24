@@ -21,15 +21,15 @@ class AboutDialog(QDialog):
 
         layout = QVBoxLayout()
 
-        title = QLabel("GoWeb")
+        title = QLabel("PythonWeb")
         font = title.font()
         font.setPointSize(20)
         title.setFont(font)
 
         layout.addWidget(title)
 
-        layout.addWidget(QLabel("Version 0.2.2 Snakebite"))
-        layout.addWidget(QLabel("Snakebite is a project in progress, with many features to modern browser features being developed."))
+        layout.addWidget(QLabel("Version 0.2.2"))
+        layout.addWidget(QLabel("PythonWeb is a project in progress, with many features to modern browser features being developed."))
         layout.addWidget(QLabel("Copyright 2022 nathandev"))
 
         layout.addWidget(self.buttonBox)
@@ -41,9 +41,7 @@ class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
 
-#        QWebEngineSettings.setAttribute(QWebEngineSettings.FullScreenSupportEnabled, True)
-#        QWebEngineSettings.setAttribute(QWebEngineSettings.FocusOnNavigationEnabled, True)
-#       QWebEngineSettings.setAttribute(QWebEngineSettings.ScrollAnimatorEnabled, True)
+        
 
         self.tabs = QTabWidget()
         self.tabs.setDocumentMode(True)
@@ -123,14 +121,14 @@ class MainWindow(QMainWindow):
 
         help_menu = self.menuBar().addMenu("&Help")
 
-        about_action = QAction("About GoWeb", self)
-        about_action.setStatusTip("Find out more about GoWeb")
+        about_action = QAction("About PythonWeb", self)
+        about_action.setStatusTip("Find out more about PythonWeb")
         about_action.triggered.connect(self.about)
         help_menu.addAction(about_action)
 
         navigate_mozarella_action = QAction(
-                                            "GoWeb Homepage", self)
-        navigate_mozarella_action.setStatusTip("Go to GoWeb Homepage")
+                                            "PythonWeb Homepage", self)
+        navigate_mozarella_action.setStatusTip("Go to PythonWeb Homepage")
         navigate_mozarella_action.triggered.connect(self.navigate_mozarella)
         help_menu.addAction(navigate_mozarella_action)
 
@@ -138,7 +136,7 @@ class MainWindow(QMainWindow):
 
         self.show()
 
-        self.setWindowTitle("GoWeb")
+        self.setWindowTitle("PythonWeb")
         self.setWindowIcon(QIcon(os.path.join('GoWebSnakebiteLogo.ico')))
 
     def add_new_tab(self, qurl=None, label="Blank"):
@@ -147,6 +145,13 @@ class MainWindow(QMainWindow):
             qurl = QUrl('https://www.google.com')
 
         browser = QWebEngineView()
+
+        browser.settings().setAttribute(QWebEngineSettings.WebAttribute.ScrollAnimatorEnabled, True)
+        browser.settings().setAttribute(QWebEngineSettings.WebAttribute.FullScreenSupportEnabled, True)
+        browser.settings().setAttribute(QWebEngineSettings.WebAttribute.JavascriptCanAccessClipboard, True)
+        browser.settings().setAttribute(QWebEngineSettings.WebAttribute.HyperlinkAuditingEnabled, True)
+        browser.settings().setAttribute(QWebEngineSettings.WebAttribute.JavascriptCanPaste, True)
+        browser.settings().setAttribute(QWebEngineSettings.WebAttribute.FocusOnNavigationEnabled, True)
 
         browser.setUrl(qurl)
         i = self.tabs.addTab(browser, label)
@@ -185,10 +190,10 @@ class MainWindow(QMainWindow):
             return
 
         title = self.tabs.currentWidget().page().title()
-        self.setWindowTitle("%s - GoWeb" % title)
+        self.setWindowTitle("%s - PythonWeb" % title)
 
     def navigate_mozarella(self):
-        self.tabs.currentWidget().setUrl(QUrl("https://imtruenathan.itch.io/goweb-snakebite"))
+        self.tabs.currentWidget().setUrl(QUrl("https://github.com/nathandevYT/PythonWeb"))
 
     def about(self):
         dlg = AboutDialog()
@@ -244,7 +249,7 @@ class MainWindow(QMainWindow):
         self.urlbar.setCursorPosition(0)
 
 app = QApplication(sys.argv)
-app.setApplicationName("GoWeb")
+app.setApplicationName("PythonWeb")
 app.setOrganizationName("nathandev")
 app.setOrganizationDomain("imtruenathan.itch.io")
 
